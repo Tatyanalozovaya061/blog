@@ -1,9 +1,12 @@
+import random
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import Http404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
+from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView, TemplateView
 
 from blog.models import Blog
+from users.models import User
 
 
 class BlogCreateView(CreateView):
@@ -62,3 +65,18 @@ class BlogDeleteView(LoginRequiredMixin, DeleteView):
         if self.object.owner != self.request.user:
             raise Http404
         return self.object
+
+
+class HomeView(TemplateView):
+    """ Домашняя страница """
+    template_name = 'blog/home.html'
+    extra_context = {
+        'title': 'Главная',
+    }
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['publish_blog_count'] = len(Blog.objects.filter(is_published=True))
+        context_data['users_count'] = len(User.objects.all())
+
+        return context_data

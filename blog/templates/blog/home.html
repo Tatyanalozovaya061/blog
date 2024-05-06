@@ -5,10 +5,10 @@
     <h1>Платформа для публикации записей пользователями</h1>
 </div>
 <div class="album py-4 bg-body-tertiary text-center">
-    <h4>Количество активных рассылок: {{ active_mail_count }}</h4>
+    <h4>Количество публикаций: {{ publish_blog_count }}</h4>
 </div>
 <div class="album py-4 bg-body-tertiary text-center">
-    <h4>Количество уникальных клиентов: {{ clients_count }}</h4>
+    <h4>Количество пользователей: {{ users_count }}</h4>
 </div>
 <div class="container">
         <div class="row">
@@ -24,8 +24,7 @@
                     <div class="card-body">
                         <p class="text-center">{{ object.content | truncatechars:100}}</p>
                         <p class="text-end"></p>
-                        <p class="text-end">{{ object.date_publicised }}</p>
-                        <p class="text-end">{{ object.view_count }} views</p>
+                        <p class="text-end">{{ object.date_created }}</p>
                     </div>
                 </div>
             </div>

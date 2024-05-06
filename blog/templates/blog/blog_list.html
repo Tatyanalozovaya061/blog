@@ -24,11 +24,12 @@
                     <form>
                     <a href="{% url 'blog:blog_view' object.pk %}"
                        class="btn btn-success">Подробнее</a>
+                        {% if object.owner == user %}
                     <a href="{% url 'blog:blog_update' object.pk %}"
                        class="btn btn-success">Редактировать</a>
                     <a href="{% url 'blog:blog_delete' object.pk %}"
                        class="btn btn-danger">Удалить</a>
-
+{% endif%}
                     </form>
                 </div>
             </div>
