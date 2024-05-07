@@ -18,5 +18,5 @@ urlpatterns = [
     path('profile/', UserProfileView.as_view(), name='profile'),
     path('cancel/', cancel_subscription, name='cancel_subscription'),
     path('success/', success_subscription, name='success_subscription'),
-    path('subscription/create/', create_subscription, name='subscription_create'),
+    path('subscription/create/', create_subscription, name='create_subscription'),
 ]

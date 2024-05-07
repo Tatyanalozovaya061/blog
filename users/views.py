@@ -54,7 +54,7 @@ class UserProfileView(UpdateView):
 def create_subscription(request):
     """Создание оплаты подписки"""
     if request.user.is_authenticated:
-        user = request.owner
+        user = request.user
         if not user.is_subscription:
             session = create_payment_session(request)
             return redirect(session.url)
@@ -69,7 +69,7 @@ def cancel_subscription(request):
 def success_subscription(request):
     """Обработка оплаты подписки"""
     if request.user.is_authenticated:
-        user = request.owner
+        user = request.user
         user.is_subscription = True
         user.save()
         messages.success(request, 'Подписка успешно оформлена!')
