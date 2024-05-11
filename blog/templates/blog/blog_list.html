@@ -32,18 +32,18 @@
             <img src="/media/{{ object.image }}" width="300" height="300" class="rounded" alt="Card image cap">
         </div>
 
-<!--        <h2> {{object.title}}</h2>-->
-<!--        <p> {{object.content|slice:300}}</p>-->
+        <h2> {{object.title}}</h2>
+        <p> {{object.content|slice:300}}</p>
 
-<!--        {% if object.is_subscription and not user.is_subscription %}-->
-<!--          <a href="{% url 'users:subscription_create' %}" type="button"-->
-<!--                       class="btn btn-success">Подписка</a>-->
-<!--        {% else %}-->
+        {% if object.is_subscription and not user.is_subscription %}
+          <a href="{% url 'users:subscription_create' %}" type="button"
+                       class="btn btn-success">Подписка</a>
+        {% else %}
 
 
-<!--        <p><a class="btn btn-success" href="{% url 'blog:blog_view' object.pk %}" role="button">Узнать больше</a>-->
-<!--        </p>-->
-<!--        {% endif %}-->
+        <p><a class="btn btn-success" href="{% url 'blog:blog_view' object.pk %}" role="button">Узнать больше</a>
+        </p>
+        {% endif %}
 
     </div>
     {% endfor %}
