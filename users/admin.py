@@ -5,6 +5,6 @@ from users.models import User
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('email', )
-    search_fields = ['username', 'email']
+    list_display = ('phone',)
+    search_fields = ['username', 'phone',]
     

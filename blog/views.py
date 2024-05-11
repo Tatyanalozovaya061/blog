@@ -12,9 +12,9 @@ from users.models import User
 class BlogCreateView(CreateView):
     """ Cоздание блога """
     model = Blog
-    fields = ('title', 'content', 'image', 'is_subscription',)
+    fields = ('title', 'content', 'image', 'is_subscription', 'date_created',)
     template_name = 'blog/blog_create.html'
-    success_url = reverse_lazy('blog:blog_list')
+    success_url = reverse_lazy('blog:home')
 
     def form_valid(self, form):
         """ Присваивание id """
@@ -41,7 +41,7 @@ class BlogUpdateView(LoginRequiredMixin, UpdateView):
     """ Изменение блога """
     model = Blog
     fields = ('title', 'content', 'image',)
-    template_name = 'blog/blog_create.html'
+    template_name = 'blog/blog_update.html'
     success_url = reverse_lazy('blog:blog_list')
 
     def get_object(self, queryset=None):
@@ -76,6 +76,7 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context_data = super().get_context_data(**kwargs)
+        context_data['object_list'] = Blog.objects.all()
         context_data['publish_blog_count'] = len(Blog.objects.filter(is_published=True))
         context_data['users_count'] = len(User.objects.all())
 
