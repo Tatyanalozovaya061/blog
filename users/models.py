@@ -10,7 +10,7 @@ class User(AbstractUser):
     phone = models.CharField(max_length=20, verbose_name='Телефон', unique=True)
     email = models.EmailField(verbose_name='Email', **NULLABLE)
     avatar = models.ImageField(upload_to='users/', verbose_name='Аватар', **NULLABLE)
-    is_subscription = models.BooleanField(default=True, verbose_name='Подписка')
+    is_subscription = models.BooleanField(default=False, verbose_name='Подписка')
 
     USERNAME_FIELD = 'phone'
     REQUIRED_FIELDS = []

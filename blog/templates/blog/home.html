@@ -49,8 +49,14 @@
 
         </div>
         {% endfor %}
+
         <div class="album py-4 bg-body-tertiary text-center">
+            {% if not user.is_authenticated %}
     <h1>Для получения полного доступа к сайту, зарегистрируйтесь</h1>
+            {% endif %}
+                        {% if user.is_authenticated %}
+    <h1>Если Вам интересна тема и Вы хотите узнать о не больше, всего за 100 рублей можно приобрести подписку</h1>
+            {% endif %}
 </div>
 
     </div>

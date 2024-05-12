@@ -13,7 +13,7 @@ class Blog(models.Model):
     date_created = models.DateField(**NULLABLE, verbose_name='Дата создания')
     is_published = models.BooleanField(default=True, verbose_name='Опубликован')
     # view_count = models.IntegerField(default=0, verbose_name='Количество просмотров')
-    is_subscription = models.BooleanField(default=False, verbose_name='Подписка')
+    is_subscription = models.BooleanField(default=True, verbose_name='Подписка')
 
     def __str__(self):
         return f'{self.title} - {self.content}'
