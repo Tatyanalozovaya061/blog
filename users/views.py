@@ -78,13 +78,3 @@ def success_subscription(request):
     else:
         messages.error(request, 'Что-то пошло не так. Пожалуйста, повторите попытку.')
         return redirect('users:login')
-
-# class UserUpdateView(PermissionRequiredMixin, UpdateView):
-#     """Обновление информации о пользователе"""
-#     model = User
-#     form_class = UserRegisterForm
-#     success_url = 'users:users_list'
-#
-#     def get_success_url(self):
-#         """Получение URL для перенаправления после успешного обновления"""
-#         return reverse('users:list_view')
