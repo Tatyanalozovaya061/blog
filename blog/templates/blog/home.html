@@ -24,11 +24,17 @@
                 <div class="card-body">
                     <p class="text-center">{{ object.content | truncatechars:100}}</p>
                     <p class="text-end"></p>
-                    <p class="text-end">{{ object.date_created }}</p>
 
-                    <p><a class="btn btn-success" href="{% url 'blog:blog_detail' object.pk %}" role="button">Узнать
-                        больше</a>
+                    {% if user.is_authenticated and object.is_subscription and not user.is_subscription and not object.owner == user %}
+                    <a href="{% url 'users:create_subscription' %}" type="button"
+                       class="btn btn-success">Подписка</a>
+                    {% endif %}
+                    {% if object.is_subscription and user.is_subscription or object.owner == user %}
+                    <p>
+                        <a href="{% url 'blog:blog_detail' object.pk %}" type="button"
+                           class="btn btn-success">Узнать больше &raquo;</a>
                     </p>
+                    {% endif %}
                     {% if object.owner == user %}
                     <a href="{% url 'blog:blog_update' object.pk %}" type="button"
                        class="btn btn-success">Редактировать</a>
@@ -40,8 +46,13 @@
                 </div>
 
             </div>
+
         </div>
         {% endfor %}
+        <div class="album py-4 bg-body-tertiary text-center">
+    <h1>Для получения полного доступа к сайту, зарегистрируйтесь</h1>
+</div>
+
     </div>
 </div>
 

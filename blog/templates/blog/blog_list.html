@@ -15,33 +15,21 @@
                 <p>{{ object.title | title }}</p>
                 <p>{{ object.content | truncatechars:100}}</p>
                 <div class="btn-group">
-
-
-
                 </div>
-
-
-    <div class="col-lg-4">
-                <div class="text-center">
-            <img src="/media/{{ object.image }}" width="300" height="300" class="rounded" alt="Card image cap">
-        </div>
-
-        <h2> {{object.title}}</h2>
-        <p> {{object.content|slice:300}}</p>
-
-        {% if object.is_subscription and not user.is_subscription %}
-          <a href="{% url 'users:subscription_create' %}" type="button"
+                <div class="col-lg-4">
+                    <div class="text-center">
+                        <img src="/media/{{ object.image }}" width="300" height="300" class="rounded"
+                             alt="Card image cap">
+                    </div>
+                    <h2> {{object.title}}</h2>
+                    <p> {{object.content|slice:300}}</p>
+                    {% if object.is_subscription and not user.is_subscription %}
+                    <a href="{% url 'users:subscription_create' %}" type="button"
                        class="btn btn-success">Подписка</a>
-        {% else %}
-
-
-
-        {% endif %}
-
-    </div>
-    {% endfor %}
-
-</div>
-
-{% endblock%}
+                    {% else %}
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endblock%}
 
