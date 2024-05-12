@@ -42,7 +42,7 @@ class BlogUpdateView(LoginRequiredMixin, UpdateView):
     model = Blog
     fields = ('title', 'content', 'image',)
     template_name = 'blog/blog_update.html'
-    success_url = reverse_lazy('blog:blog_list')
+    success_url = reverse_lazy('blog:home')
 
     def get_object(self, queryset=None):
         """ Обновлять блог может только автор """

@@ -5,5 +5,5 @@ from blog.models import Blog
 
 @admin.register(Blog)
 class BlogAdmin(admin.ModelAdmin):
-    list_display = ('pk', 'title', 'is_subscription',)
+    list_display = ('pk', 'title', 'is_subscription', 'owner')
     search_fields = ('pk', 'title', 'is_subscription', 'date_created',)
