@@ -16,7 +16,7 @@
 ```
 2. Активируйте виртуальное окружение, установите зависимости
 ```bash
-  python source/bin/activate
+  python venv\Scripts\activate
 ```
 ```bash
   python -m pip install -r requirements.txt 
