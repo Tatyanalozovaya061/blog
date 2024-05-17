@@ -12,7 +12,6 @@ class Blog(models.Model):
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name='Автор')
     date_created = models.DateField(**NULLABLE, verbose_name='Дата создания')
     is_published = models.BooleanField(default=True, verbose_name='Опубликован')
-    # view_count = models.IntegerField(default=0, verbose_name='Количество просмотров')
     is_subscription = models.BooleanField(default=True, verbose_name='Подписка')
 
     def __str__(self):
