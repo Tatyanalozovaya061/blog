@@ -9,6 +9,7 @@
 3. django
 4. docker
 
+## Для запуска проекта:
 1. Клонируйте репозиторий
 ```bash
   git glone https://github.com/Tatyanalozovaya061/blog.git
