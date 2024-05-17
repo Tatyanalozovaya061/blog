@@ -1,5 +1,5 @@
 from django.test import TestCase
-from rest_framework.reverse import reverse
+from django.urls import reverse
 
 
 class UserTestCase(TestCase):
