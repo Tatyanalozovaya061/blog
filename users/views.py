@@ -18,6 +18,7 @@ class UserLoginView(LoginView):
 
 class UserLogoutView(View):
     """Обработка выхода пользователя"""
+    pass
 
     def get(self, request, *args, **kwargs):
         logout(request)

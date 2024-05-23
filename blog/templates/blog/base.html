@@ -29,7 +29,8 @@
                        class="btn btn-success">Создать запись</a>
                     <a href="{% url 'users:profile' %}" type="button"
                        class="btn btn-success">Профиль пользователя</a>
-                    <a class="btn btn-success" href="{% url 'users:logout' %}">Выйти</a>
+                    <a href="{% url 'users:logout' %}" type="button"
+                       class="btn btn-success">Выйти</a>
                     {% else %}
                     <a class="btn btn-success" href="{% url 'users:login' %}">Войти</a>
                     <a class="btn btn-success" href="{% url 'users:register' %}">Регистрация</a>
